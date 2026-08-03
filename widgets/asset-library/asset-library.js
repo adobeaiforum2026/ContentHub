@@ -19,8 +19,9 @@ async function fetchAssets(src) {
 }
 
 /**
- * Builds one result card. Every value is written via textContent / element
- * properties (never innerHTML) so authored data cannot inject markup.
+ * Builds one asset card: image (or typed placeholder) on top, then title,
+ * description and a Download button. Every value is written via textContent /
+ * element properties (never innerHTML) so authored data cannot inject markup.
  * @param {object} item asset row
  * @returns {HTMLLIElement}
  */
@@ -28,42 +29,47 @@ function renderItem(item) {
   const li = document.createElement('li');
   li.className = 'asset-library-item';
 
-  const card = document.createElement('a');
+  const card = document.createElement('article');
   card.className = 'asset-library-card';
-  card.href = item.url || item.link;
-  card.setAttribute('download', '');
 
+  const thumb = document.createElement('div');
+  thumb.className = 'asset-library-thumb';
   if (item.thumbnail) {
     const img = document.createElement('img');
-    img.className = 'asset-library-thumb';
     img.src = item.thumbnail;
     img.alt = '';
     img.loading = 'lazy';
-    card.append(img);
+    thumb.append(img);
+  } else {
+    thumb.classList.add('asset-library-thumb-placeholder');
+    const label = document.createElement('span');
+    label.textContent = item.type || 'FILE';
+    thumb.append(label);
   }
+  card.append(thumb);
 
-  const meta = document.createElement('div');
-  meta.className = 'asset-library-meta';
+  const body = document.createElement('div');
+  body.className = 'asset-library-body';
 
-  const title = document.createElement('span');
+  const title = document.createElement('h3');
   title.className = 'asset-library-title';
   title.textContent = item.title || item.name || 'Untitled';
-  meta.append(title);
+  body.append(title);
 
-  const parts = [item.type, item.size, item.date].filter(Boolean);
-  if (parts.length) {
-    const sub = document.createElement('span');
-    sub.className = 'asset-library-sub';
-    sub.textContent = parts.join(' · ');
-    meta.append(sub);
-  }
-  card.append(meta);
+  const desc = document.createElement('p');
+  desc.className = 'asset-library-desc';
+  desc.textContent = item.description || [item.type, item.size].filter(Boolean).join(' · ');
+  body.append(desc);
 
-  const icon = document.createElement('span');
-  icon.className = 'asset-library-download';
-  icon.setAttribute('aria-hidden', 'true');
-  card.append(icon);
+  const download = document.createElement('a');
+  download.className = 'asset-library-download';
+  download.href = item.url || item.link;
+  download.setAttribute('download', '');
+  download.textContent = 'Download';
+  download.setAttribute('aria-label', `Download ${item.title || item.name || 'file'}`);
+  body.append(download);
 
+  card.append(body);
   li.append(card);
   return li;
 }

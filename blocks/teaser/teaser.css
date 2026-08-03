@@ -10,6 +10,7 @@
   min-height: 420px;
   padding: 48px 24px;
   overflow: hidden;
+  isolation: isolate;
   background-color: #000;
   color: var(--background-color);
 }

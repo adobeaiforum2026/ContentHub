@@ -146,25 +146,24 @@
   line-height: 1.5;
 }
 
-/* Download button — matches the AI Forum "Register" CTA */
-.asset-library-download {
+/* Download button — white with black outline (scoped to beat a:any-link) */
+.asset-library .asset-library-download {
   align-self: flex-start;
   margin-top: auto;
   padding: 10px 24px;
-  border: 2px solid var(--brand-color);
+  border: 2px solid var(--text-color);
   border-radius: 2em;
-  background: var(--brand-color);
-  color: #fff;
+  background: var(--background-color);
+  color: var(--text-color);
   font-weight: 700;
   line-height: 1.25;
   text-decoration: none;
 }
 
-.asset-library-download:hover,
-.asset-library-download:focus-visible {
-  border-color: #c10d00;
-  background: #c10d00;
-  color: #fff;
+.asset-library .asset-library-download:hover,
+.asset-library .asset-library-download:focus-visible {
+  background: var(--text-color);
+  color: var(--background-color);
   text-decoration: none;
 }
 

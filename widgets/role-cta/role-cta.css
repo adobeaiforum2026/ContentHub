@@ -19,20 +19,22 @@
   margin: 0;
 }
 
-/* outline pill, matching the design's "Talk through next steps" button */
-.role-cta-button {
+/* outline pill, matching the design's "Talk through next steps" button
+   (scoped with .role-cta to beat a:any-link on link color) */
+.role-cta .role-cta-button {
   display: inline-block;
   padding: 12px 28px;
   border: 2px solid var(--text-color);
   border-radius: 2em;
+  background: var(--background-color);
   color: var(--text-color);
   font-weight: 700;
   line-height: 1.25;
   text-decoration: none;
 }
 
-.role-cta-button:hover,
-.role-cta-button:focus-visible {
+.role-cta .role-cta-button:hover,
+.role-cta .role-cta-button:focus-visible {
   background: var(--text-color);
   color: var(--background-color);
   text-decoration: none;

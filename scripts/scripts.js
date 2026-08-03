@@ -143,10 +143,20 @@ function decorateButtons(main) {
 }
 
 /**
+ * Reads the current page URL query string.
+ * Used by blocks/widgets that personalize or pre-filter from an externally
+ * generated link (e.g. `?category=slides&q=keynote&name=Jane`).
+ * @param {string} [search] Optional search string; defaults to the page URL.
+ * @returns {URLSearchParams} the parsed query parameters
+ */
+export function getPageParams(search = window.location.search) {
+  return new URLSearchParams(search);
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
-// eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);

@@ -6,15 +6,36 @@ footer {
 }
 
 footer .footer > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
   max-width: 1200px;
   margin: auto;
-  padding: 16px 24px;
+  padding: 20px 24px;
   line-height: 1.5;
 }
 
 footer .footer p {
   margin: 0;
-  text-align: center;
+}
+
+/* left group: Adobe bug + social icons */
+footer .footer p:first-child {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+footer .footer p:first-child img {
+  height: 24px;
+  width: auto;
+}
+
+footer .footer .icon {
+  width: 20px;
+  height: 20px;
 }
 
 footer .footer a:any-link {
@@ -28,10 +49,6 @@ footer .footer a:hover {
 
 @media (width >= 900px) {
   footer .footer > div {
-    padding: 16px 32px;
-  }
-
-  footer .footer p {
-    text-align: right;
+    padding: 20px 32px;
   }
 }

@@ -1,0 +1,39 @@
+.role-cta {
+  display: block;
+}
+
+.role-cta-heading {
+  margin: 0 0 12px;
+  font-size: var(--heading-font-size-l);
+  line-height: 1.2;
+}
+
+.role-cta-body {
+  margin: 0 0 24px;
+  max-width: 62ch;
+  font-size: var(--body-font-size-m);
+  line-height: 1.5;
+}
+
+.role-cta-actions {
+  margin: 0;
+}
+
+/* outline pill, matching the design's "Talk through next steps" button */
+.role-cta-button {
+  display: inline-block;
+  padding: 12px 28px;
+  border: 2px solid var(--text-color);
+  border-radius: 2em;
+  color: var(--text-color);
+  font-weight: 700;
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+.role-cta-button:hover,
+.role-cta-button:focus-visible {
+  background: var(--text-color);
+  color: var(--background-color);
+  text-decoration: none;
+}

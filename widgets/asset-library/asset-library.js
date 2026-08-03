@@ -85,19 +85,11 @@ export default async function decorate(widget) {
   const src = widget.dataset.src || DEFAULT_SRC;
   const params = getPageParams();
 
-  const greetingEl = widget.querySelector('.asset-library-greeting');
   const searchInput = widget.querySelector('.asset-library-search-input');
   const filtersEl = widget.querySelector('.asset-library-filters');
   const statusEl = widget.querySelector('.asset-library-status');
   const resultsEl = widget.querySelector('.asset-library-results');
   const emptyEl = widget.querySelector('.asset-library-empty');
-
-  // personalized greeting (textContent-safe)
-  const name = (params.get('name') || '').trim();
-  if (name && greetingEl) {
-    greetingEl.textContent = `Welcome, ${name}`;
-    greetingEl.hidden = false;
-  }
 
   // seed initial state from the URL
   let activeCategory = lower(params.get('category'));

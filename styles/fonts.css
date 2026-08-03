@@ -1,5 +1,27 @@
 /* stylelint-disable max-line-length */
 @font-face {
+  font-family: adobe-clean;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/adobe-clean-regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: adobe-clean;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/adobe-clean-bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: adobe-clean-fallback;
+  size-adjust: 96%;
+  src: local('Arial');
+}
+
+@font-face {
   font-family: roboto-condensed;
   font-style: normal;
   font-weight: 700;

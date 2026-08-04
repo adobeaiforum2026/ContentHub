@@ -50,6 +50,17 @@
   margin: 0;
   font-size: var(--heading-font-size-s);
   line-height: 1.25;
+
+  /* clamp title to 2 lines and reserve the space so cards line up */
+  min-height: 2.5em;
+  overflow: hidden;
+
+  /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  /* stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix */
 }
 
 .cards .cards-card-body p {
@@ -57,6 +68,18 @@
   color: var(--dark-color);
   font-size: var(--body-font-size-xs);
   line-height: 1.5;
+}
+
+/* clamp the description (not the button row) to 3 lines */
+.cards .cards-card-body p:not(.cards-card-actions) {
+  overflow: hidden;
+
+  /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  /* stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix */
 }
 
 .cards .cards-card-actions {

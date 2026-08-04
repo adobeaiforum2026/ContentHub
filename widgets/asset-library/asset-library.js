@@ -107,6 +107,14 @@ export default async function decorate(widget) {
     return;
   }
 
+  // optional `?ids=a,b,c` restricts the list to those asset ids, in that order
+  const idsParam = params.get('ids');
+  if (idsParam) {
+    const ids = idsParam.split(',').map((s) => s.trim()).filter(Boolean);
+    const byId = new Map(assets.map((a) => [String(a.id || '').trim(), a]));
+    assets = ids.map((id) => byId.get(id)).filter(Boolean);
+  }
+
   const categories = [...new Set(assets.map((a) => (a.category || '').trim()).filter(Boolean))]
     .sort((a, b) => a.localeCompare(b));
 

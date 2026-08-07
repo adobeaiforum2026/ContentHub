@@ -61,12 +61,13 @@ function renderItem(item) {
   desc.textContent = item.description || [item.type, item.size].filter(Boolean).join(' · ');
   body.append(desc);
 
+  const btnText = (item.buttonText || item.cta || '').trim() || 'Download';
   const download = document.createElement('a');
   download.className = 'asset-library-download';
   download.href = item.url || item.link;
   download.setAttribute('download', '');
-  download.textContent = 'Download';
-  download.setAttribute('aria-label', `Download ${item.title || item.name || 'file'}`);
+  download.textContent = btnText;
+  download.setAttribute('aria-label', `${btnText}: ${item.title || item.name || 'file'}`);
   body.append(download);
 
   card.append(body);

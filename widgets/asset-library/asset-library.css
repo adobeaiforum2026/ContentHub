@@ -137,6 +137,17 @@
   margin: 0;
   font-size: var(--heading-font-size-s);
   line-height: 1.25;
+
+  /* clamp title to 2 lines and reserve the space so cards line up */
+  min-height: 2.5em;
+  overflow: hidden;
+
+  /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  /* stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix */
 }
 
 .asset-library-desc {
@@ -144,6 +155,17 @@
   color: var(--al-muted);
   font-size: var(--body-font-size-xs);
   line-height: 1.5;
+
+  /* clamp description to 3 lines and reserve the space so cards line up */
+  min-height: 4.5em;
+  overflow: hidden;
+
+  /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  /* stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix */
 }
 
 /* Download button — white with black outline (scoped to beat a:any-link) */
